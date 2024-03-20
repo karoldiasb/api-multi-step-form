@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Plan;
+use App\Models\PlanType;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class PlanController extends Controller
+class PlanTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class PlanController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $plans = Plan::all();
+        $planTypes = PlanType::all();
 
         return response()->json([
-            'data' => $plans,
-            'total' => $plans->count(),
+            'data' => $planTypes,
+            'total' => $planTypes->count(),
         ], 200);
     }
 }
