@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +18,11 @@ class PlanTypeSeeder extends Seeder
         $plan_types = [
             [
                 'description' => 'Monthly',
+                'created_at' => Carbon::now()
             ],
             [
                 'description' => 'Yearly',
+                'created_at' => Carbon::now()
             ],
         ];
 
