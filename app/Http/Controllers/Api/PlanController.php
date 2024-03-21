@@ -16,7 +16,9 @@ class PlanController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $plans = Plan::all();
+        $plans = Plan::with('values', 'values.planType')->get();
+
+        // dd($plans[0]);
 
         return response()->json([
             'data' => $plans,

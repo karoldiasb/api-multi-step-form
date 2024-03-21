@@ -18,8 +18,8 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->unsignedBigInteger('id_plan');
-            $table->foreign('id_plan')->references('id')->on('plans');
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans');
             $table->timestamps();
         });
     }

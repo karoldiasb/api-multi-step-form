@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
+use App\Models\AdOn;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AdOnSeeder extends Seeder
 {
@@ -15,57 +14,60 @@ class AdOnSeeder extends Seeder
      */
     public function run()
     {
-        $ads_on = [
-            [
+        $adsOn = [];
+        $i = 0;
+        $plan_id = 1;
+        $multiplicator = 1;
+        while($i < 3){
+            $adsOn[] = [
                 'title' => 'Online service',
                 'description' => 'Access to multiplayer games',
-                'value' => 1,
-                'id_plan' => 1,
-                'id_plan_type' => 1,
-                'created_at' => Carbon::now()
-            ],
-            [
+                'value' => 1 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 1
+            ];
+            $adsOn[] = [
                 'title' => 'Larger storage',
                 'description' => 'Extra 1TB of cloud save',
-                'value' => 2,
-                'id_plan' => 1,
-                'id_plan_type' => 1,
-                'created_at' => Carbon::now()
-            ],
-            [
+                'value' => 2 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 1
+            ];
+            $adsOn[] = [
                 'title' => 'Customize profile',
                 'description' => 'Custom theme on your profile',
-                'value' => 2,
-                'id_plan' => 1,
-                'id_plan_type' => 1,
-                'created_at' => Carbon::now()
-            ],
-            [
+                'value' => 2 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 1
+            ];
+            $adsOn[] = [
                 'title' => 'Online service',
                 'description' => 'Access to multiplayer games',
-                'value' => 10,
-                'id_plan' => 1,
-                'id_plan_type' => 2,
-                'created_at' => Carbon::now()
-            ],
-            [
+                'value' => 10 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 2
+            ];
+            $adsOn[] = [
                 'title' => 'Larger storage',
                 'description' => 'Extra 1TB of cloud save',
-                'value' => 20,
-                'id_plan' => 1,
-                'id_plan_type' => 2,
-                'created_at' => Carbon::now()
-            ],
-            [
+                'value' => 20 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 2
+            ];
+            $adsOn[] = [
                 'title' => 'Customize profile',
                 'description' => 'Custom theme on your profile',
-                'value' => 20,
-                'id_plan' => 1,
-                'id_plan_type' => 2,
-                'created_at' => Carbon::now()
-            ],
-        ];
+                'value' => 20 * $multiplicator,
+                'plan_id' => $plan_id,
+                'plan_type_id' => 2
+            ];
+            $i++;
+            $plan_id+= 1;
+            $multiplicator+=1;
+        }
 
-        DB::table('ad_ons')->insert($ads_on);
+        foreach ($adsOn as $adOn) {
+            AdOn::create($adOn);
+        }
     }
 }

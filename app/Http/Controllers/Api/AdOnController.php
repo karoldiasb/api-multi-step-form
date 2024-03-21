@@ -18,7 +18,7 @@ class AdOnController extends Controller
     public function index(AdOnRequest $request): JsonResponse
     {
         $search = function ($query) use ($request) {
-            $same = $request->only('id_plan', 'id_plan_type');
+            $same = $request->only('plan_id', 'plan_type_id');
 
             foreach ($same as $name => $value) {
                 if ($value) {
