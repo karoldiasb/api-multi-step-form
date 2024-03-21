@@ -17,12 +17,10 @@ class PlanTypeSeeder extends Seeder
     {
         $plan_types = [
             [
-                'description' => 'Monthly',
-                'created_at' => Carbon::now()
+                'description' => 'Monthly'
             ],
             [
-                'description' => 'Yearly',
-                'created_at' => Carbon::now()
+                'description' => 'Yearly'
             ],
         ];
 

@@ -24,8 +24,8 @@ class AdOnRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_plan' => 'nullable|exists:plans,id',
-            'id_plan_type' => 'nullable|exists:plan_types,id',
+            'plan_id' => 'nullable|exists:plans,id',
+            'plan_type_id' => 'nullable|exists:plan_types,id',
         ];
     }
 

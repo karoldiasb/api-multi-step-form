@@ -15,10 +15,10 @@ class CreatePlanCompilationsTable extends Migration
     {
         Schema::create('plan_compilations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_plan');
-            $table->foreign('id_plan')->references('id')->on('plans');
-            $table->unsignedBigInteger('id_plan_type');
-            $table->foreign('id_plan_type')->references('id')->on('plan_types');
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->unsignedBigInteger('plan_type_id');
+            $table->foreign('plan_type_id')->references('id')->on('plan_types');
             $table->float('value');
             $table->timestamps();
         });
