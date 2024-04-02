@@ -18,6 +18,11 @@ class AdOn extends Model
      */
     protected $fillable = ['title', 'description', 'value', 'plan_id', 'plan_type_id', 'created_at'];
 
+    /**
+     * @var array
+     */
+    protected $hidden = ['created_at', 'updated_at'];
+
     protected function createdAt(): Attribute
     {
         return Attribute::make(
