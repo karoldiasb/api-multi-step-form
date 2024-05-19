@@ -18,8 +18,6 @@ class PlanController extends Controller
     {
         $plans = Plan::with('values', 'values.planType')->get();
 
-        // dd($plans[0]);
-
         return response()->json([
             'data' => $plans,
             'total' => $plans->count(),
