@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Observers\AdOnObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
+#[ObservedBy([AdOnObserver::class])]
 class AdOn extends Model
 {
     use HasFactory;
