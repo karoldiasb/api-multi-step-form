@@ -154,5 +154,3 @@ php artisan serve
 
 everything is ok to make your requests by accessing [http://127.0.0.1:8000/api](http://127.0.0.1:8000/api)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
