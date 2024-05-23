@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdOnRequest;
 use App\Models\AdOn;
-use Exception;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 
 class AdOnController extends Controller
@@ -29,10 +29,13 @@ class AdOnController extends Controller
 
         $adOns = AdOn::where($search)->get();
 
-        return response()->json([
-            'data' => $adOns,
-            'total' => $adOns->count(),
-        ], 200);
+        return response()->json(
+            [
+                'data' => $adOns,
+                'total' => $adOns->count()
+            ],
+            Response::HTTP_OK
+        );
 
     }
 }
