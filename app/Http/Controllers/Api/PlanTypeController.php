@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PlanType;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PlanTypeController extends Controller
 {
@@ -18,9 +19,12 @@ class PlanTypeController extends Controller
     {
         $planTypes = PlanType::all();
 
-        return response()->json([
-            'data' => $planTypes,
-            'total' => $planTypes->count(),
-        ], 200);
+        return response()->json(
+            [
+                'data' => $planTypes,
+                'total' => $planTypes->count()
+            ],
+            Response::HTTP_OK
+        );
     }
 }

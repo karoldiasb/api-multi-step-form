@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Models\AdOn;
 use App\Models\Plan;
 use App\Models\PlanType;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,7 +13,7 @@ class AdOnControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_returns_success_ad_ons_with_no_request_params(): void
+    public function test_returns_ad_ons_with_no_request_params_successfully(): void
     {
         $plan = Plan::factory()->create();
         $planType = PlanType::factory()->create();
@@ -27,10 +27,9 @@ class AdOnControllerTest extends TestCase
         $response->assertStatus(Response::HTTP_OK);
 
         $response->assertJsonCount(1, 'data');
-
     }
 
-    public function test_returns_success_ad_ons_based_on_request_params(): void
+    public function test_returns_ad_ons_based_on_request_params_successfully(): void
     {
         $plan = Plan::factory()->create();
         $planType = PlanType::factory()->create();

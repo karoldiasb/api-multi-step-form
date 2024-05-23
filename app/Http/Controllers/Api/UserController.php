@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\UserAdOn;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -33,10 +34,12 @@ class UserController extends Controller
             ]);
         }
 
-        return response()->json([
-            'success' => true,
-            "msg" => 'user created'
-        ], 201);
-
+        return response()->json(
+            [
+                'success' => true,
+                "msg" => 'user created'
+            ],
+            Response::HTTP_CREATED
+        );
     }
 }
